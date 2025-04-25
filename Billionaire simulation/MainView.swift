@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+let width = UIScreen.main.bounds.width
+let height = UIScreen.main.bounds.height
 
 struct MainView: View {
-    let width = UIScreen.main.bounds.width
-    let height = UIScreen.main.bounds.height
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack{
                 VStack {
                     Text("Billionaire Simulation")
                         .font(.system(size: geometry.size.width < 600 ? 22 : 40 , weight: .black))
-                        .padding(.top,geometry.size.width < 600 ? -330 : -450)
+                        .padding(.top,geometry.size.width < 600 ? -370 : -450)
                     HStack {
                         Text("₿     |  ")
                             .font(.system(size: geometry.size.width < 600 ? 20 : 30 , weight: .black))
@@ -40,11 +41,23 @@ struct MainView: View {
                     .cornerRadius(35)
                     .shadow(radius: 10)
                     .padding(.horizontal)
-                    .offset(x : geometry.size.width < 600 ? 80 : 180 , y : geometry.size.width < 600 ? -300 : -390)
+                    .offset(x : geometry.size.width < 600 ? 80 : 180 , y : geometry.size.width < 600 ? -330 : -390)
                 }
+                HStack {
+                    Image("c1")
+                        .resizable()
+                        .frame(width:  geometry.size.width < 600 ? 80 : 130 , height:   geometry.size.width < 600 ? 60 : 100)
+                    Text("2000")
+                        .font(.system(size:  geometry.size.width < 600 ? 20 : 40 , weight: .black))
+                        .foregroundColor(.white)
+                        .offset(x : -20)
+                }
+                .offset(x :  geometry.size.width < 600 ? -10 : -20 , y :  geometry.size.width < 600 ? -100 : -130)
+                
                 VStack(alignment: .leading) {
                     
                     HStack{
+                        
                         Button {
                             
                         } label: {
@@ -65,6 +78,7 @@ struct MainView: View {
                                 .offset(y : 80)
                         })
                         .padding(.horizontal , geometry.size.width < 600 ? -40 : -140)
+                        .offset(y : geometry.size.width < 600 ? -200 : -90)
                         
                         Button {
                             
@@ -86,11 +100,32 @@ struct MainView: View {
                                 .offset(y : 80)
                         })
                         .padding(.horizontal , geometry.size.width < 600 ? -40 : -140)
-                        .offset(x : geometry.size.width < 600 ? 300 : 600)
+                        .offset(x : geometry.size.width < 600 ? 300 : 600 , y : geometry.size.width < 600 ? -200 : -90)
+                        
+                        Button {
+                            
+                        } label: {
+                            Image("rocket")
+                                .resizable()
+                                .frame(width: geometry.size.width < 600 ? 55 : 100 , height: geometry.size.width < 600 ? 55 : 100)
+                        }
+                        .padding()
+                        .padding(.horizontal , geometry.size.width < 600 ? -40 : -140)
+                        .offset(x : geometry.size.width < 600 ? 270 : 530 , y : geometry.size.width < 600 ? 230 : 490)
+                        
+                        
+                        Button {
+                            
+                        } label: {
+                            Image("thunder")
+                                .resizable()
+                                .frame(width: geometry.size.width < 600 ? 55 : 80 , height: geometry.size.width < 600 ? 55 : 80)
+                        }
+                        .padding()
+                        .padding(.horizontal , geometry.size.width < 600 ? -40 : -140)
+                        .offset(x : geometry.size.width < 600 ? -40 : 20 , y : geometry.size.width < 600 ? 230 : 490)
                         
                     }
-                    .offset(y : geometry.size.width < 600 ? -200 : -90)
-                    
                     Button {
                         
                     } label: {
@@ -108,7 +143,7 @@ struct MainView: View {
                                     }
                             }
                     }
-                    .offset(y : geometry.size.width < 600 ? -200 : -150)
+                    .offset(y : geometry.size.width < 600 ? -110 : -70)
                         
                 }
                 .frame(maxWidth: .infinity , maxHeight: 890)
